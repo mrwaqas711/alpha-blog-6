@@ -14,3 +14,30 @@
   letter-spacing: -1px;
   font-weight: bold;
 }
+#home-container{
+  margin-top: 25px;
+  text-align: center;
+  background-image: asset_url('writing.jpg') !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 425px;
+}
+//#sticky-footer {
+//  position: fixed;
+//  width: 100%;
+//  left: 0;
+//  bottom: 0;
+//}
+
+html,
+body{
+  height: 100%;
+}
+#page-content{
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+#sticky-footer{
+  flex-shrink: 0;
+}
