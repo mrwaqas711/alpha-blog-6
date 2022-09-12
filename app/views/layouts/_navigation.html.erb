@@ -12,12 +12,32 @@
         <li class="nav-item">
           <%= link_to 'About', about_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Create new article', new_article_path, class: 'nav-link' %>
-        </li>
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to 'Create new article', new_article_path, class: 'nav-link' %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'View articles', articles_path, class: 'nav-link' %>
         </li>
+        <% if logged_in? %>
+          <li class="nav-item">
+            <div class='nav-link'>
+              <%= "(Admin)" if current_user.admin? %> Profile
+              <%= link_to current_user.username, user_path(current_user) %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log out', logout_path, class: 'nav-link', method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Log in', login_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up', signup_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
